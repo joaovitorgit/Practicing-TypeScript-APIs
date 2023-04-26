@@ -32,6 +32,14 @@ const updatePost = async(req:Request, res:Response, next:NextFunction)=>{
     });
 }
 
+const deletePost = async(req: Request, res: Response, next:NextFunction)=>{
+    let id:string =  req.params.id;
+    let response: AxiosResponse = await axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
+
+    return res.status(200).json({
+        messsage: 'Post deleted successfully'
+    })
+}
 
 
 
