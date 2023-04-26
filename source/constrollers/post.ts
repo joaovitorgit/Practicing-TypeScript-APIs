@@ -1,5 +1,5 @@
 import {Request, Response, NextFunction} from 'express';
-import axios,{ AxiosResponse} from 'axios';
+import axios,{ Axios, AxiosResponse} from 'axios';
 
 interface Post{
     userId: Number,
@@ -15,5 +15,6 @@ const getPosts =async (req:Request, res:Response, next:NextFunction) => {
         message: posts
     });
 }
+
 
 export default {getPosts};
