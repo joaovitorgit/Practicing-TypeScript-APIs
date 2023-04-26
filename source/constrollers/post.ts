@@ -16,5 +16,23 @@ const getPosts =async (req:Request, res:Response, next:NextFunction) => {
     });
 }
 
+const updatePost = async(req:Request, res:Response, next:NextFunction)=>{
+    let id:string = req.params.id;
+    let title:string = req.params.title ?? null;
+    let body:string = req.params.body ?? null;
 
-export default {getPosts};
+
+    let response: AxiosResponse = await axios.put(`https://jsonplaceholder.typicode.com/posts/${id}`,{
+        ...(title &&{title}),
+        ...(body && {body})
+    });
+
+    return res.status(200).json({
+        message:response.data
+    });
+}
+
+
+
+
+export default {getPosts, updatePost};
