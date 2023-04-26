@@ -56,4 +56,4 @@ const addPost = async (req:Request, res:Response, nextFunction: NextFunction)=>{
 }
 
 
-export default {getPosts, updatePost};
+export default {getPosts, updatePost,deletePost,addPost};
