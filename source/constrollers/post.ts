@@ -41,6 +41,19 @@ const deletePost = async(req: Request, res: Response, next:NextFunction)=>{
     })
 }
 
+const addPost = async (req:Request, res:Response, nextFunction: NextFunction)=>{
+    let title:string = req.params.title;
+    let body:string = req.params.body;
+
+    let response: AxiosResponse = await axios.post(`https://jsonplaceholder.typicode.com/posts`,{
+        title,
+        body
+    });
+
+    return res.status(200).json({
+        message: response.data
+    });
+}
 
 
 export default {getPosts, updatePost};
